@@ -24,8 +24,7 @@ namespace Asteroids
             Right
         }
 
-        private void Start()
-        {
+        private void Start() {
             _camera = Camera.main;
             Spawn();
             UpdateNextSpawnTime();
@@ -70,10 +69,27 @@ namespace Asteroids
             }
         }
 
-        private static SpawnLocation GetSpawnLocation()
-        {
-            var roll = Random.Range(0, 4);
-
+        private static SpawnLocation GetSpawnLocation() {
+            var roll = 0;
+            var gameSettings = GameSettingsHolder.GameSettings.GameSettingsSo;
+            var asteroidIncomingDir = gameSettings._asteroidsincomingdirection;
+            switch (asteroidIncomingDir) {
+                case GameSettingsSO.AsteroidIncomingDirection.random:
+                    roll = Random.Range(0, 4);
+                    break;
+                case GameSettingsSO.AsteroidIncomingDirection.top:
+                    roll = 4;
+                    break;
+                case GameSettingsSO.AsteroidIncomingDirection.down:
+                    roll = 1;
+                    break;
+                case GameSettingsSO.AsteroidIncomingDirection.left:
+                    roll = 2;
+                    break;
+                case GameSettingsSO.AsteroidIncomingDirection.right:
+                    roll = 3;
+                    break;
+            }
             return roll switch
             {
                 1 => SpawnLocation.Bottom,

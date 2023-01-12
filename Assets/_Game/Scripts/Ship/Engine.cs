@@ -37,9 +37,15 @@ namespace Ship
             _rigidbody = GetComponent<Rigidbody2D>();
         }
     
-        public void Throttle()
-        {
-            _rigidbody.AddForce(transform.up * _throttlePower.Value, ForceMode2D.Force);
+        public void Throttle() {
+            var gameSettings = GameSettingsHolder.GameSettings.GameSettingsSo;
+            if (gameSettings._playershipmode == GameSettingsSO.PlayerShipMode.hyperspeed) {
+                _rigidbody.AddForce(transform.up * (_throttlePower.Value * 5), ForceMode2D.Force);
+            }
+            else {
+                _rigidbody.AddForce(transform.up * _throttlePower.Value, ForceMode2D.Force);
+            }
+
         }
 
         public void SteerLeft()
