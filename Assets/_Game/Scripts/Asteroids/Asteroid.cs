@@ -1,3 +1,4 @@
+using System;
 using DefaultNamespace.ScriptableEvents;
 using UnityEngine;
 using Variables;
@@ -24,6 +25,15 @@ namespace Asteroids
         private Rigidbody2D _rigidbody;
         private Vector3 _direction;
         private int _instanceId;
+
+
+        private void Awake() {
+            var gameSettings = GameSettingsHolder.GameSettings.GameSettingsSo;
+            _minTorque = gameSettings.AsteroidMinRotation;
+            _maxTorque = gameSettings.AsteroidMaxRotation;
+            _minSize = gameSettings.AsteroidMinSize;
+            _maxSize = gameSettings.AsteroidMaxSize;
+        }
 
         private void Start()
         {

@@ -13,8 +13,12 @@ MonoBehaviour:
   m_Name: GameSettings
   m_EditorClassIdentifier: 
   _playershipmode: 1
-  _asteroidsincomingdirection: 1
-  AsteroidRotationSpeed: 1
-  PlayerDamage: 1
-  AsteroidDamage: 3
+  _asteroidsincomingdirection: 0
+  AsteroidRotationSpeed: 0
+  PlayerHealth: 123
+  AsteroidDamage: 599
+  AsteroidMinRotation: 4.4302325
+  AsteroidMaxRotation: 5
+  AsteroidMinSize: 0.2
+  AsteroidMaxSize: 5
   AsteroidPrefab: {fileID: 0}

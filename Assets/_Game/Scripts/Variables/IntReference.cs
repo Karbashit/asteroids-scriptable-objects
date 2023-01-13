@@ -24,6 +24,11 @@ namespace Variables
             _useSimple = true;
         }
 
+        public void SetValue(int health) {
+            _intVariable.SetValue(health);
+            _simpleValue = health;
+        }
+
         public int GetValue()
         {
             return _useSimple ? _simpleValue : _intVariable.Value;

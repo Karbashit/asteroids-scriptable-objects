@@ -20,7 +20,11 @@ public class GameSettingsSO : ScriptableObject
     public AsteroidIncomingDirection _asteroidsincomingdirection;
     
     public float AsteroidRotationSpeed;
-    public int PlayerDamage;
+    public int PlayerHealth;
     public int AsteroidDamage;
+    public float AsteroidMinRotation;
+    public float AsteroidMaxRotation;
+    public float AsteroidMinSize;
+    public float AsteroidMaxSize;
     public GameObject AsteroidPrefab;
 }

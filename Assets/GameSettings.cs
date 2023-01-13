@@ -8,12 +8,14 @@ public class GameSettings : EditorWindow {
     [SerializeField] private VisualTreeAsset _tree;
 
     private FloatField AsteroidRotationSpeed;
-    private IntegerField PlayerDamage;
+    private IntegerField PlayerHealth;
     private EnumField ShipMode;
     private IntegerField AsteroidDamage;
     private EnumField AsteroidIncomingDirection;
     private Button CreateScriptableObject;
     private GameObject AsteroidPrefab;
+    private MinMaxSlider AsteroidRotation;
+    private MinMaxSlider AsteroidSize;
 
     private GameSettingsSO GsSO;
     
@@ -37,7 +39,7 @@ public class GameSettings : EditorWindow {
     [MenuItem("Tools/GameSettings")]
     public static void ShowEditor() {
         var window = GetWindow<GameSettings>();
-        window.titleContent = new GUIContent("GameSettings");
+        window.titleContent = new GUIContent("Game Settings Tool");
     }
     
     private void CreateGUI() {
@@ -61,7 +63,6 @@ public class GameSettings : EditorWindow {
             EditorUtility.FocusProjectWindow();
             SetGameSettings(GsSO);
             Selection.activeObject = GsSO;
-            
         }
         else {
             Debug.Log("File exists! Changing its settings instead.");
@@ -72,10 +73,14 @@ public class GameSettings : EditorWindow {
     }
 
     private void SetGameSettings(GameSettingsSO gamesettingsasset) {
-        gamesettingsasset.PlayerDamage = PlayerDamage.value;
+        EditorUtility.SetDirty(GsSO);
+        gamesettingsasset.AsteroidMinRotation = AsteroidRotation.minValue;
+        gamesettingsasset.AsteroidMaxRotation = AsteroidRotation.maxValue;
+        gamesettingsasset.AsteroidMinSize = AsteroidSize.minValue;
+        gamesettingsasset.AsteroidMaxSize = AsteroidSize.maxValue;
+        gamesettingsasset.PlayerHealth = PlayerHealth.value;
         gamesettingsasset.AsteroidPrefab = AsteroidPrefab;
         gamesettingsasset.AsteroidDamage = AsteroidDamage.value;
-        gamesettingsasset.AsteroidRotationSpeed = AsteroidRotationSpeed.value;
         gamesettingsasset._playershipmode = GameSettingsSO.PlayerShipMode.hyperspeed;
         switch (ShipMode.value) {
             case shipmode.hyperspeed:
@@ -108,12 +113,13 @@ public class GameSettings : EditorWindow {
     }
 
     private void InitializeFields() {
-        PlayerDamage = rootVisualElement.Q<IntegerField>("PlayerDamage");
+        PlayerHealth = rootVisualElement.Q<IntegerField>("PlayerHealth");
         ShipMode = rootVisualElement.Q<EnumField>("PlayerShipMode");
         ShipMode.Init(shipmode.normal);
         ShipMode.value = shipmode.hyperspeed;
         ShipMode.value = shipmode.rapidfire;
-        AsteroidRotationSpeed = rootVisualElement.Q<FloatField>("AsteroidRotationSpeed");
+        AsteroidRotation = rootVisualElement.Q<MinMaxSlider>("AsteroidRotationSpeed");
+        AsteroidSize = rootVisualElement.Q<MinMaxSlider>("AsteroidSize");
         AsteroidDamage = rootVisualElement.Q<IntegerField>("AsteroidDamage");
         AsteroidIncomingDirection = rootVisualElement.Q<EnumField>("AsteroidIncomingDirection");
         AsteroidIncomingDirection.Init(asteroidincomingdirection.random);
