@@ -13,3 +13,5 @@ The scripts i made for this are found in the assets root folder.
 The Scriptable object that is created after using the tool is found in resources.
 
 I've made minor changes to the games scripts overall to support the changes made to the game by the tool.
+
+If the tool isn't responding for some reason, close it down and re-open it.
