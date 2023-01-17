@@ -1,4 +1,4 @@
-## Asteroids - Game Settings Tool
+## Asteroids Fork - Game Settings Tool
 By Joakim Karbing
 
 1. Before playing the game, create a game settings asset.
@@ -6,5 +6,10 @@ By Joakim Karbing
 The game settings asset is automatically applied and the game can be played right away.
 3. If you want to change settings, create a new asset using the same method.
 
+
+
 The scripts i made for this are found in the assets root folder.
+
 The Scriptable object that is created after using the tool is found in resources.
+
+I've made minor changes to the games scripts overall to support the changes made to the game by the tool.
