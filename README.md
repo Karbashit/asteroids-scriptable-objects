@@ -14,4 +14,4 @@ The Scriptable object that is created after using the tool is found in resources
 
 I've made minor changes to the games scripts overall to support the changes made to the game by the tool.
 
-If the tool isn't responding for some reason, close it down and re-open it.
+If the tool isn't responding for some reason or fail to create/update an asset, close it down and re-open it and it will work.
