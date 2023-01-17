@@ -18,7 +18,9 @@ public class GameSettingsSO : ScriptableObject
 
     public PlayerShipMode _playershipmode;
     public AsteroidIncomingDirection _asteroidsincomingdirection;
-    
+
+
+    public Color ShipColor;
     public float AsteroidRotationSpeed;
     public int PlayerHealth;
     public int AsteroidDamage;

@@ -9,6 +9,7 @@ namespace Ship
     {
         [SerializeField] private FloatVariable _throttlePower;
         [SerializeField] private FloatVariable _rotationPower;
+        [SerializeField] private Color32 _shipColor;
         
         [SerializeField] private float _throttlePowerSimple;
         [SerializeField] private float _rotationPowerSimple;
@@ -35,6 +36,10 @@ namespace Ship
         private void Start()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
+            _shipColor = GameSettingsHolder.GameSettings.GameSettingsSo.ShipColor;
+            GetComponentInChildren<SpriteRenderer>().color = _shipColor;
+            _shipColor.a = 1;
+
         }
     
         public void Throttle() {

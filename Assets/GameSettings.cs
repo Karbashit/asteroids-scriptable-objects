@@ -16,6 +16,7 @@ public class GameSettings : EditorWindow {
     private GameObject AsteroidPrefab;
     private MinMaxSlider AsteroidRotation;
     private MinMaxSlider AsteroidSize;
+    private ColorField ShipColor;
 
     private GameSettingsSO GsSO;
     
@@ -79,6 +80,7 @@ public class GameSettings : EditorWindow {
         gamesettingsasset.AsteroidMinSize = AsteroidSize.minValue;
         gamesettingsasset.AsteroidMaxSize = AsteroidSize.maxValue;
         gamesettingsasset.PlayerHealth = PlayerHealth.value;
+        gamesettingsasset.ShipColor = ShipColor.value;
         gamesettingsasset.AsteroidPrefab = AsteroidPrefab;
         gamesettingsasset.AsteroidDamage = AsteroidDamage.value;
         gamesettingsasset._playershipmode = GameSettingsSO.PlayerShipMode.hyperspeed;
@@ -113,6 +115,7 @@ public class GameSettings : EditorWindow {
     }
 
     private void InitializeFields() {
+        ShipColor = rootVisualElement.Q<ColorField>("ShipColor");
         PlayerHealth = rootVisualElement.Q<IntegerField>("PlayerHealth");
         ShipMode = rootVisualElement.Q<EnumField>("PlayerShipMode");
         ShipMode.Init(shipmode.normal);
