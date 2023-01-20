@@ -1,5 +1,6 @@
 ## Asteroids Fork - Game Settings Tool
 By Joakim Karbing
+
 Aiming for bare minimum, just showing that i know how to make a tool and make use of scriptable objects.
 
 1. Before playing the game, create a game settings asset.
